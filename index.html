@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>TraumHandyVerlosung – Gewinne dein Traumhandy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg: #040414;
+      --bg-soft: #070719;
+      --card-bg: rgba(10, 10, 22, 0.98);
+      --card-soft: rgba(11, 12, 30, 0.96);
+      --accent: #ffffff;
+      --accent-soft: #c2c4d6;
+      --accent-soft-2: #8b8ea4;
+      --pixel-free: rgba(255, 255, 255, 0.06);
+      --pixel-hover: rgba(255, 255, 255, 0.3);
+      --pixel-sold: #ffffff;
+      --border-soft: rgba(255, 255, 255, 0.16);
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 32px 80px rgba(0, 0, 0, 0.9);
+      --blur: 26px;
+      --cosmic-light: #ff7a45;
+      --cosmic-mid: #ff9963;
+      --cosmic-dark: #74291b;
+      --accent-teal: #42ffd2;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #272a66 0, #070718 40%, #010109 100%);
+      color: var(--accent);
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto 32px;
+    }
+
+    /* Header */
+
+    .site-header {
+      display:flex; align-items:flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-text-main {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--accent-soft-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-svg {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.9));
+    }
+
+    .header-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .site-tagline {
+      font-size: 11px;
+      color: var(--accent-soft-2);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    @media (max-width: 880px) {
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-cta {
+        justify-content: flex-start;
+      }
+      .site-tagline {
+        text-align: left;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.13), rgba(6,7,20,0.98));
+      border: 1px solid rgba(255,255,255,0.13);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 26px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 34px;
+    }
+
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      background: rgba(8, 9, 28, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-soft-2);
+      margin-bottom: 16px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cosmic-light);
+      box-shadow: 0 0 10px rgba(255, 122, 69, 0.9);
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #ffffff, #ffe2b6);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--accent-soft);
+      max-width: 520px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .hero-subtitle strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 12px;
+      color: var(--accent-soft-2);
+    }
+
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--radius-pill);
+      padding: 6px 12px;
+      background: rgba(5, 6, 20, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+    }
+
+    .trust-icon {
+      width: 9px;
+      height: 11px;
+      border-radius: 3px 3px 6px 6px;
+      border: 1px solid rgba(255,255,255,0.75);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 6px;
+      margin-top: 2px;
+    }
+
+    .price-main {
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .price-sub {
+      font-size: 14px;
+      color: var(--accent-soft);
+    }
+
+    #countdown {
+      margin: 4px 0 18px;
+      font-size: 13px;
+      color: #ffe2b6;
+      font-weight: 400;
+    }
+
+    #countdown strong {
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      border-radius: var(--radius-pill);
+      padding: 11px 24px;
+      font-size: 15px;
+      background: linear-gradient(135deg, var(--cosmic-light), var(--cosmic-mid));
+      color: #050509;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      transition: transform 0.14s ease, box-shadow 0.14s ease, filter 0.14s ease;
+    }
+
+    .btn-primary span {
+      font-size: 18px;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      padding: 9px 16px;
+      background: rgba(6,7,22,0.9);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: var(--accent-soft);
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      backdrop-filter: blur(10px);
+      transition: background 0.14s ease, border-color 0.14s ease, color 0.14s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--accent-soft);
+      max-width: 540px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .note strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Hero right: phone card + universe teaser */
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .phone-card {
+      position: relative;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at top right, rgba(255,140,82,0.35), rgba(10, 10, 26, 0.98));
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 18px 18px 16px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1.2fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    @media (max-width: 520px) {
+      .phone-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .phone-visual {
+      position: relative;
+      width: 320px;
+      max-width: 60vw;
+    }
+    .phone-badge {
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: rgba(5,6,20,0.92);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: var(--accent-soft-2);
+      z-index: 2;
+    }
+
+
+    .phone-image {
+      width: 100%;
+      display: block;
+      border-radius: 32px;
+      object-fit: contain;
+      filter: drop-shadow(0 26px 50px rgba(0,0,0,0.9));
+    }
+
+    .phone-specs {
+      font-size: 12.5px;
+      color: var(--accent-soft);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .phone-specs-title {
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 4px 9px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--accent-soft-2);
+      background: rgba(5,6,20,0.9);
+    }
+
+    .mini-note {
+      font-size: 11px;
+      color: var(--accent-soft-2);
+      margin-top: 6px;
+    }
+
+    .universe-teaser {
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(7,10,30,0.96), rgba(8,10,34,0.96));
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--accent-soft);
+    }
+
+    .universe-teaser strong {
+      color: #ffffff;
+    }
+
+    .universe-teaser span.pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--cosmic-light);
+      box-shadow: 0 0 14px rgba(255,122,69,1);
+      display: inline-block;
+      margin-right: 6px;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.9; }
+      100% { transform: scale(1.35); opacity: 0.45; }
+    }
+
+    .universe-link {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 6px 13px;
+      font-size: 11px;
+      color: #ffffff;
+      background: rgba(0,0,0,0.4);
+      cursor: pointer;
+    }
+
+    /* Sections */
+
+    .section {
+      margin-top: 26px;
+      border-radius: var(--radius-xl);
+      background: rgba(6,7,22,0.98);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 20px 20px 18px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+      gap: 12px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--accent-soft-2);
+      max-width: 380px;
+      font-weight: 300;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 880px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      border-radius: var(--radius-lg);
+      background: var(--card-soft);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 12px 13px 11px;
+      font-size: 13px;
+      color: var(--accent-soft);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .step-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-soft-2);
+      margin-bottom: 4px;
+    }
+
+    .step-title {
+      font-size: 15px;
+      color: #ffffff;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    /* Universe full section */
+
+    .universe-full {
+      margin-top: 24px;
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.12), rgba(6,7,22,0.98));
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 20px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    @media (max-width: 980px) {
+      .universe-full {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .universe-text p {
+      font-size: 14px;
+      color: var(--accent-soft);
+      line-height: 1.7;
+      margin-bottom: 8px;
+      font-weight: 300;
+    }
+
+    .universe-text p strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .universe-hint {
+      font-size: 12px;
+      color: var(--accent-soft-2);
+      margin-top: 10px;
+    }
+
+    .universe-wrapper {
+      position: relative;
+      display:flex; align-items:flex-start;
+      justify-content: center;
+    }
+
+    .universe-shell {
+      position: relative;
+      width: min(520px, 100%);
+      aspect-ratio: 16 / 10;
+      border-radius: 26px;
+      padding: 14px;
+      background:
+        radial-gradient(circle at top, #25245a, #050212 70%, #000000 100%);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 30px 80px rgba(0, 0, 0, 0.9);
+      overflow: hidden;
+    }
+
+    .universe-shell::before,
+    .universe-shell::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(42px);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .universe-shell::before {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 122, 69, 0.6), transparent 60%);
+      top: -40px;
+      right: -60px;
+      animation: drift1 18s ease-in-out infinite alternate;
+    }
+
+    .universe-shell::after {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(121, 204, 255, 0.5), transparent 60%);
+      bottom: -60px;
+      left: -40px;
+      animation: drift2 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift1 {
+      0% { transform: translate3d(0,0,0); opacity: 0.95; }
+      100% { transform: translate3d(-18px, 14px, 0); opacity: 0.7; }
+    }
+
+    @keyframes drift2 {
+      0% { transform: translate3d(0,0,0); opacity: 0.7; }
+      100% { transform: translate3d(16px, -12px, 0); opacity: 0.95; }
+    }
+
+    .universe-header {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.92);
+      z-index: 2;
+    }
+
+    .universe-title {
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 10px;
+    }
+
+    .universe-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.45);
+      font-size: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .universe-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--cosmic-light);
+      box-shadow: 0 0 10px rgba(255, 122, 69, 0.9);
+    }
+
+    .universe-footer {
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.9);
+      z-index: 2;
+    }
+
+    .universe-footer span.small {
+      font-size: 10px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .universe-grid-wrap {
+      position: absolute;
+      inset: 0;
+      padding: 32px 28px 28px;
+      z-index: 1;
+      display:flex; align-items:flex-start;
+      justify-content: center;
+    }
+
+    .universe-grid-mask {
+      width: 100%;
+      height: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      pointer-events: auto;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,0.06), transparent 60%);
+    }
+
+    .universe-grid-mask::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 0, transparent 60%, rgba(0, 0, 0, 0.82) 100%);
+      pointer-events: none;
+    }
+
+    .universe-grid {
+      position: absolute;
+      inset: 7% 6%;
+      display: grid;
+      grid-template-columns: repeat(80, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 1px;
+    }
+
+    .pixel {
+      border-radius: 999px;
+      background: var(--pixel-free);
+      cursor: pointer;
+      opacity: 0.8;
+      transition:
+        background 0.12s ease,
+        transform 0.08s ease,
+        box-shadow 0.12s ease,
+        opacity 0.12s ease;
+    }
+
+    .pixel:hover {
+      background: var(--pixel-hover);
+      transform: translateY(-0.4px) scale(1.18);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+      opacity: 1;
+    }
+
+    .pixel.sold {
+      background: var(--pixel-sold);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.98);
+      cursor: default;
+      opacity: 1;
+      animation: twinkle 2.4s ease-in-out infinite alternate;
+    }
+
+    .pixel.selected {
+      transform: scale(2.2);
+      background: #ffffff;
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.98);
+      opacity: 1;
+      z-index: 3;
+    }
+
+
+    .pixel.sold:hover {
+      transform: none;
+      background: var(--pixel-sold);
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.4; box-shadow: 0 0 8px rgba(255,255,255,0.7); }
+      100% { opacity: 1; box-shadow: 0 0 18px rgba(255,255,255,1); }
+    }
+
+    .pixel[data-tooltip]:hover::after {
+      content: attr(data-tooltip);
+      position: fixed;
+      pointer-events: none;
+      background: rgba(0, 0, 0, 0.95);
+      color: #ffffff;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transform: translate(10px, -24px);
+      z-index: 9999;
+    }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-intro {
+      font-size: 13px;
+      color: var(--accent-soft);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .faq-list {
+      border-radius: var(--radius-lg);
+      background: var(--card-soft);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 8px 6px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      text-align: left;
+      padding: 8px 4px;
+      font-size: 13px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question span {
+      flex: 1;
+      padding-right: 8px;
+    }
+
+    .faq-toggle {
+      font-size: 16px;
+      color: var(--accent-soft-2);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.18s ease;
+      font-size: 12px;
+      color: var(--accent-soft);
+      padding: 0 4px;
+    }
+
+    .faq-answer-inner {
+      padding-bottom: 8px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 230px;
+    }
+
+    /* Trust / No Scam section */
+    .trust-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      font-size: 13px;
+      color: var(--accent-soft);
+    }
+
+    .trust-item {
+      border-radius: var(--radius-lg);
+      background: var(--card-soft);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 10px 11px 9px;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .trust-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-soft-2);
+      margin-bottom: 4px;
+    }
+
+    .trust-strong {
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    @media (max-width: 880px) {
+      .trust-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 22px;
+      font-size: 11px;
+      color: var(--accent-soft-2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pay-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .pay-pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--accent-soft);
+      background: rgba(0,0,0,0.3);
+    }
+
+    /* Modal */
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 1000;
+    }
+
+    .modal {
+      max-width: 430px;
+      width: 100%;
+      border-radius: 22px;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 18px;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .modal-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      border: none;
+      background: transparent;
+      color: var(--accent-soft);
+      font-size: 20px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      color: var(--accent-soft);
+      margin-bottom: 14px;
+      font-weight: 300;
+    }
+
+    .modal-body strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 12px;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(2, 3, 15, 0.9);
+      color: #ffffff;
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.9);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 52px;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .modal small {
+      font-size: 11px;
+      color: var(--accent-soft);
+    }
+
+    .btn-pay {
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      background: linear-gradient(135deg, var(--cosmic-light), var(--cosmic-mid));
+      color: #050509;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.9);
+      color: #ffffff;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.14s ease, transform 0.14s ease;
+      z-index: 2000;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translate(-50%, -4px);
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo-wrap">
+        <svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true">
+          <rect x="16" y="8" width="32" height="48" rx="8" fill="none" stroke="#ffffff" stroke-width="2" />
+          <defs>
+            <linearGradient id="thvGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ff7a45" />
+              <stop offset="100%" stop-color="#ffffff" />
+            </linearGradient>
+          </defs>
+          <rect x="20" y="14" width="24" height="32" rx="5" fill="url(#thvGrad)" />
+          <circle cx="32" cy="46" r="2" fill="#050509" />
+          <polygon
+            points="46,16 48,20 52,21 49,24 50,28 46,26 42,28 43,24 40,21 44,20"
+            fill="#ff7a45"
+            stroke="#ffffff"
+            stroke-width="0.7"
+          />
+        </svg>
+        <div>
+          <div class="logo-text-main">TraumHandyVerlosung</div>
+          <div class="logo-text-sub">DEIN PIXEL IM COSMIC UNIVERSE</div>
+        </div>
+      </div>
+      <div class="header-cta">
+        <div class="site-tagline">
+          IPHONE 17 PRO · 256 GB · COSMIC ORANGE
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Cosmic Edition
+        </div>
+        <h1>
+          Gewinne dein <span class="highlight">Traumhandy</span> –
+          mit nur einem Pixel.
+        </h1>
+        <p class="hero-subtitle">
+          Du kaufst einen eigenen Pixel – wie einen Stern im digitalen All – und erhältst zusätzlich
+          gratis eine Teilnahme an der Verlosung eines
+          <strong>iPhone&nbsp;17 Pro, 256&nbsp;GB, Cosmic Orange</strong>.
+        </p>
+
+        <div class="trust-row">
+          <div class="trust-pill">
+            <span class="trust-icon"></span>
+            Privat organisierte Aktion
+          </div>
+          <div class="trust-pill">
+            ⏱ Aktion bis 29.11.2025 · 22:00 Uhr
+          </div>
+        </div>
+
+        <div class="price-row">
+          <span class="price-main">1 €</span>
+          <span class="price-sub">pro Pixel im TraumHandy-Universum</span>
+        </div>
+        <div id="countdown">
+          Wird geladen...
+        </div>
+
+        <div class="cta-row">
+          <button class="btn-primary" id="scrollToGridBtn" type="button">
+            Jetzt Pixel sichern
+            <span>↘</span>
+          </button>
+          <button class="btn-secondary" id="openRulesBtn" type="button">
+            Teilnahmebedingungen
+          </button>
+        </div>
+
+        <p class="note">
+          <strong>Wichtig:</strong> Du kaufst einen digitalen Pixel im TraumHandy-Universum.
+          Die Teilnahme an der TraumHandyVerlosung (Hauptgewinn:
+          iPhone&nbsp;17 Pro, 256&nbsp;GB, Cosmic Orange) ist ein
+          <strong>zusätzlicher, kostenloser Bonus</strong> für alle Pixel-Käufer:innen.
+          Die Aktion läuft bis zum <strong>29.11.2025 um 22:00 Uhr</strong>.
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="phone-card">
+          <div class="phone-badge">Verlosung · Staffel 1</div>
+          <div class="phone-visual">
+            <img src="iphone-17-pro-cosmic-orange.png" alt="iPhone 17 Pro Cosmic Orange" class="phone-image" />
+          </div>
+          <div class="phone-specs">
+            <div class="phone-specs-title">iPhone 17 Pro · 256 GB · Cosmic Orange</div>
+            <div>Dein mögliches Traumhandy – starkes Display, Pro-Kameras, schneller Chip.</div>
+            <div class="pill-row">
+              <div class="pill">256 GB Speicher</div>
+              <div class="pill">Pro Kamera-Setup</div>
+              <div class="pill">Cosmic Orange Finish</div>
+            </div>
+            <div class="mini-note">
+              Unverbindlich geschätzter Gesamtwert: <strong>über 1.500 €</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="universe-teaser">
+          <div>
+            <span class="pulse-dot"></span>
+            <strong>Dein Pixel leuchtet im Cosmic Universe.</strong><br />
+            Klicke einen freien Punkt im Universum an und sichere dir deinen Spot.
+          </div>
+          <button class="universe-link" id="scrollToUniverse" type="button">
+            Zum Pixel-Universum
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="section" aria-labelledby="steps-title">
+      <div class="section-header">
+        <div class="section-title" id="steps-title">So funktioniert TraumHandyVerlosung</div>
+        <div class="section-sub">
+          Drei Schritte, ein Pixel, eine Chance auf dein Traumhandy.
+        </div>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-label">Schritt 1</div>
+          <div class="step-title">Freien Pixel wählen</div>
+          <p>
+            Scrolle in das Cosmic Universe und klicke einen freien Punkt an. Er steht für deinen
+            eigenen Spot im TraumHandy-Universum.
+          </p>
+        </article>
+        <article class="step-card">
+          <div class="step-label">Schritt 2</div>
+          <div class="step-title">Kurz eintragen & bezahlen</div>
+          <p>
+            Trage deinen Namen/Handle ein. Danach öffnet sich in einem neuen Tab
+            <strong>PayPal.Me (1&nbsp;€)</strong>. Zahlung abschließen – fertig.
+          </p>
+        </article>
+        <article class="step-card">
+          <div class="step-label">Schritt 3</div>
+          <div class="step-title">Pixel leuchtet & Ziehung</div>
+          <p>
+            Dein Pixel beginnt zu funkeln. Nach Aktionsende wird zufällig ein Gewinner aus allen
+            Pixel-Käufer:innen ermittelt.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Universe full -->
+    <section class="universe-full" id="universe-section">
+      <div class="universe-text">
+        <div class="section-title" style="margin-bottom:6px;">Dein Pixel im Cosmic Universe</div>
+        <p>
+          Jeder Punkt in diesem Universum ist ein <strong>einzigartiger Pixel</strong>.
+          Ist ein Pixel einmal vergeben, beginnt er zu leuchten und zeigt bei Hover deinen Namen
+          oder dein Lieblings-Emoji.
+        </p>
+        <p>
+          Das Universum ist bewusst wie ein <strong>endloses Sternenfeld</strong> gestaltet –
+          du siehst keine feste Gesamtanzahl. Du wählst einfach einen leuchtenden Spot für dich.
+        </p>
+        <p>
+          Der <strong>Pixel-Kauf</strong> ist dein eigentliches digitales Produkt.
+          Die Gewinnchance auf das iPhone 17 Pro ist ein zusätzlicher Bonus für alle,
+          die mitmachen.
+        </p>
+        <div class="universe-hint">
+          Einige Pixel leuchten bereits im Cosmic Universe – such dir jetzt deinen eigenen Spot aus.
+        </div>
+      </div>
+
+      <div class="universe-wrapper">
+        <div class="universe-shell" id="universeShell">
+          <div class="universe-header">
+            <div class="universe-title">COSMIC PIXEL UNIVERSE</div>
+            <div class="universe-pill">
+              <span class="universe-pill-dot"></span>
+              Klicke einen freien Pixel
+            </div>
+          </div>
+
+          <div class="universe-grid-wrap">
+            <div class="universe-grid-mask">
+              <div class="universe-grid" id="universeGrid"></div>
+            </div>
+          </div>
+
+          <div class="universe-footer">
+            <div>
+              <span class="small">Einige Pixel leuchten bereits –</span><br />
+              <span class="small">dein Platz wartet irgendwo hier im All.</span>
+            </div>
+            <div>
+              <span class="small">Bonus-Gewinn:</span><br />
+              iPhone 17 Pro · 256 GB
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faq-title">
+      <div class="section-header">
+        <div class="section-title" id="faq-title">Häufige Fragen</div>
+        <div class="section-sub">
+          Ein kurzer Überblick. Für eine rechtssichere Umsetzung solltest du die finalen
+          Teilnahmebedingungen juristisch prüfen lassen.
+        </div>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-intro">
+          <p>
+            TraumHandyVerlosung ist eine <strong>privat organisierte Aktion</strong>, bei der du
+            einen digitalen Pixel (also ein kleines, virtuelles Gut) kaufst.
+          </p>
+          <p style="margin-top:6px;">
+            Die Teilnahme an der Verlosung des iPhone 17 Pro ist ein
+            <strong>kostenloser Bonus</strong> für alle Pixel-Käufer:innen. So steht dein
+            Pixel-Kauf im Mittelpunkt – die Gewinnchance ist ein Extra.
+          </p>
+          <p style="margin-top:6px;">
+            Hinweis: Dies ersetzt <strong>keine Rechtsberatung</strong>. Wenn du die Aktion
+            groß bewerben möchtest (z. B. Ads, hohe Reichweite), sprich bitte mit einer
+            Rechtsanwältin / einem Rechtsanwalt.
+          </p>
+                  <p style="margin-top:6px;">
+            Nach der Verlosung wird der Gewinner <strong>noch am selben Abend</strong> über die bei PayPal
+            hinterlegten Kontaktdaten informiert. Der Versand des iPhone 17 Pro erfolgt in der Regel
+            <strong>innerhalb von 24 Stunden</strong> nach Bestätigung der Versandadresse.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Was genau kaufe ich hier für 1 €?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Du kaufst einen <strong>digitalen Pixel</strong> im TraumHandy-Universum auf dieser
+                Seite. Dieser Pixel wird dir visuell zugeordnet (Name/Emoji bei Hover) und bleibt
+                lokal im Browser gespeichert. Die Gewinnchance ist ein zusätzlicher Bonus.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Wie bekomme ich meine Teilnahme an der Verlosung?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Jeder gültig gekaufte Pixel erhält automatisch eine
+                <strong>kostenlose Gewinnchance</strong>. Du kannst z. B. eine interne Liste mit
+                Namen/Handles führen und später für die Ziehung eine zufällige Nummer ermitteln
+                (zum Beispiel in einem Livestream).
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Wie läuft die Bezahlung ab?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nach Bestätigung deines Pixels öffnet sich in einem neuen Tab
+                <strong>PayPal.Me (1&nbsp;€)</strong> unter dem Link
+                <code>paypal.me/TraumHandyVerlosung</code>.
+                Die finale Prüfung, ob bezahlt wurde, erfolgt aktuell manuell über deine
+                PayPal-Zahlungseingänge.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>Ist das eine offizielle Lotterie?</span>
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Nein. TraumHandyVerlosung ist eine <strong>private Aktion</strong>. Es handelt sich
+                nicht um eine behördlich genehmigte Lotterie. Der Kauf des Pixels steht im
+                Vordergrund, die Gewinnchance ist ein Bonus. Für eine rechtssichere Umsetzung
+                solltest du professionelle Rechtsberatung einholen.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust / No Scam -->
+    <section class="section" aria-labelledby="trust-title">
+      <div class="section-header">
+        <div class="section-title" id="trust-title">Kein Scam. Kein Abo. Kein Trick.</div>
+        <div class="section-sub">
+          Kurz und ehrlich erklärt, wie TraumHandyVerlosung gedacht ist – damit du ein gutes Gefühl hast.
+        </div>
+      </div>
+      <ul class="trust-list">
+        <li class="trust-item">
+          <div class="trust-tag">Transparenz</div>
+          <div>
+            <span class="trust-strong">Du zahlst genau 1 € pro Pixel.</span> Keine Abos, keine
+            versteckten Gebühren. Entweder du hast am Ende einen leuchtenden Pixel – oder mit viel
+            Glück dein Traumhandy.
+          </div>
+        </li>
+        <li class="trust-item">
+          <div class="trust-tag">Faire Ziehung</div>
+          <div>
+            <span class="trust-strong">Die Verlosung basiert auf deinen echten Zahlungseingängen.</span>
+            Jeder bezahlte Pixel zählt einmal. Die Auslosung kann z.&nbsp;B. live oder per
+            Screen-Recording dokumentiert werden.
+          </div>
+        </li>
+        <li class="trust-item">
+          <div class="trust-tag">Ehrlicher Hinweis</div>
+          <div>
+            Diese Seite ist eine <span class="trust-strong">privat organisierte Aktion</span> und
+            steht in keinem Zusammenhang mit Apple oder PayPal. Informiere dich immer selbst und
+            spiel nur mit, wenn es sich für dich gut anfühlt.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        Teilnahme erst ab 18 Jahren. Glücksspielähnliche Angebote können Risiken bergen – setze nur Geld ein,
+        das du entbehren kannst.
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div class="modal-title">Dein Pixel im Cosmic Universe – 1 €</div>
+        <button class="modal-close" id="closeModalBtn" aria-label="Schließen">×</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Du kaufst einen <strong>Pixel im TraumHandy-Universum</strong>. Dieser wird lokal
+          gespeichert, markiert und bei Hover mit deinem Namen/Emoji angezeigt – wie ein
+          persönlicher Stern im All.
+        </p>
+        <p style="margin-top:8px;">
+          <strong>Bonus:</strong> Mit deinem Pixel-Kauf erhältst du
+          <strong>zusätzlich gratis</strong> eine Teilnahme an der TraumHandyVerlosung.
+          Der Hauptgewinn ist ein <strong>iPhone&nbsp;17 Pro, 256&nbsp;GB, Cosmic Orange</strong>.
+        </p>
+        <p style="margin-top:8px;">
+          Die Aktion endet am <strong>29.11.2025 um 22:00 Uhr</strong>.
+        </p>
+      </div>
+      <form id="pixelForm">
+        <div class="form-grid">
+          <div>
+            <label for="buyerName">Name / Handle (wird beim Pixel angezeigt)</label>
+            <input id="buyerName" name="buyerName" required maxlength="40" />
+          </div>
+          <div>
+            <label for="buyerEmail">E-Mail (optional, für deine Dokumentation)</label>
+            <input
+              id="buyerEmail"
+              name="buyerEmail"
+              type="email"
+              maxlength="120"
+            />
+          </div>
+          <div>
+            <label for="buyerNote">Kurztext / Emoji (optional)</label>
+            <textarea
+              id="buyerNote"
+              name="buyerNote"
+              maxlength="60"
+              placeholder="z. B. 🤍 @schornii"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <small>
+            Nach Klick auf „Jetzt mit PayPal zahlen“ wird dein Pixel lokal reserviert
+            und PayPal.Me (1&nbsp;€) in einem neuen Tab geöffnet.
+          </small>
+          <button type="submit" class="btn-pay">
+            Jetzt mit PayPal zahlen
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Pixel reserviert – PayPal in neuem Tab geöffnet.</div>
+
+  
+<script>
+  // Pixel Universe Configuration
+  const COLS = 80;
+  const ROWS = 62;
+  const TOTAL_PIXELS = COLS * ROWS;
+  const STORAGE_KEY = "traumHandyUniverse_v12";
+
+  const universeGrid = document.getElementById("universeGrid");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const pixelForm = document.getElementById("pixelForm");
+  const toast = document.getElementById("toast");
+  const scrollToGridBtn = document.getElementById("scrollToGridBtn");
+  const scrollToUniverseBtn = document.getElementById("scrollToUniverse");
+  const openRulesBtn = document.getElementById("openRulesBtn");
+  const universeShell = document.getElementById("universeShell");
+  const countdownEl = document.getElementById("countdown");
+
+  let pixels = new Array(TOTAL_PIXELS).fill(null);
+  let selectedPixelIndex = null;
+
+  function seedDemoPixels() {
+    const demoEntries = [
+      { index: 80 * 8 + 10,  name: "Lena S. ✨",   note: "" },
+      { index: 80 * 9 + 45,  name: "Tim B. 🔥",    note: "@timbeats" },
+      { index: 80 * 11 + 30, name: "Mila K. 💫",   note: "" },
+      { index: 80 * 13 + 60, name: "Chris H. ⚡",  note: "#cosmic" },
+      { index: 80 * 15 + 22, name: "Niko W. ⭐",   note: "" },
+      { index: 80 * 18 + 5,  name: "Sara M. ✨",   note: "" },
+      { index: 80 * 20 + 55, name: "Jonas F. 🌙", note: "" },
+      { index: 80 * 23 + 35, name: "Emily R. 💜", note: "" },
+      { index: 80 * 27 + 12, name: "Alex P. 🚀",  note: "" },
+      { index: 80 * 30 + 48, name: "Timo L. ⭐",   note: "" },
+      { index: 80 * 34 + 18, name: "Kira D. ✨",   note: "" },
+      { index: 80 * 37 + 62, name: "Lukas G. ⚡",  note: "" },
+      { index: 80 * 40 + 8,  name: "Mara J. 💫",  note: "" },
+      { index: 80 * 44 + 40, name: "Phil S. 🌟",  note: "" },
+      { index: 80 * 47 + 25, name: "Zoé C. 💜",   note: "" },
+      { index: 80 * 50 + 58, name: "Ben T. ⭐",    note: "" },
+      { index: 80 * 52 + 14, name: "Nina E. ✨",   note: "" },
+      { index: 80 * 55 + 32, name: "Oli K. ⚡",    note: "" },
+      { index: 80 * 57 + 45, name: "Lia V. 💫",   note: "" },
+      { index: 80 * 59 + 6,  name: "Jule N. 🌙",  note: "" }
+    ];
+    demoEntries.forEach((d) => {
+      if (d.index >= 0 && d.index < TOTAL_PIXELS && !pixels[d.index]) {
+        pixels[d.index] = {
+          name: d.name,
+          email: "",
+          note: d.note,
+          purchasedAt: "demo"
+        };
+      }
+    });
+  }
+
+  function loadPixels() {
+    let loaded = false;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const arr = JSON.parse(saved);
+        if (Array.isArray(arr) && arr.length === TOTAL_PIXELS) {
+          pixels = arr;
+          loaded = true;
+        }
+      }
+    } catch (e) {
+      // ignore
+    }
+    if (!loaded) {
+      pixels = new Array(TOTAL_PIXELS).fill(null);
+      seedDemoPixels();
+      savePixels();
+    }
+  }
+
+  function savePixels() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(pixels));
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  function buildGrid() {
+    if (!universeGrid) return;
+    universeGrid.innerHTML = "";
+    universeGrid.style.gridTemplateColumns = "repeat(" + COLS + ", 1fr)";
+
+    pixels.forEach((meta, index) => {
+      const div = document.createElement("div");
+      div.className = "pixel";
+      div.dataset.index = index;
+
+      if (meta) {
+        div.classList.add("sold");
+        if (meta.name || meta.note) {
+          const tooltip = (meta.name || "") + (meta.note ? " – " + meta.note : "");
+          div.dataset.tooltip = tooltip.trim();
+        }
+      }
+
+      div.addEventListener("click", () => handlePixelClick(index, div));
+      universeGrid.appendChild(div);
+    });
+  }
+
+  function handlePixelClick(index, el) {
+    const meta = pixels[index];
+    if (meta) return; // already taken
+
+    selectedPixelIndex = index;
+
+    // Visual highlight: enlarge + glow for a short moment
+    if (el) {
+      el.classList.add("selected");
+      setTimeout(() => {
+        el.classList.remove("selected");
+      }, 1800);
+    }
+
+    openModal();
+  }
+
+  function openModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.style.display = "flex";
+    modalBackdrop.setAttribute("aria-hidden", "false");
+    modalBackdrop.style.opacity = "1";
+  }
+
+  function closeModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.style.opacity = "0";
+    modalBackdrop.setAttribute("aria-hidden", "true");
+    setTimeout(() => {
+      modalBackdrop.style.display = "none";
+    }, 140);
+    selectedPixelIndex = null;
+    if (pixelForm) pixelForm.reset();
+  }
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add("visible");
+    setTimeout(() => {
+      toast.classList.remove("visible");
+    }, 3000);
+  }
+
+  // Form submit -> store pixel + open PayPal
+  if (pixelForm) {
+    pixelForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (selectedPixelIndex === null) return;
+
+      const name = document.getElementById("buyerName")?.value.trim() || "";
+      const email = document.getElementById("buyerEmail")?.value.trim() || "";
+      const note = document.getElementById("buyerNote")?.value.trim() || "";
+
+      if (!name) return;
+
+      pixels[selectedPixelIndex] = {
+        name,
+        email,
+        note,
+        purchasedAt: new Date().toISOString()
+      };
+      savePixels();
+      buildGrid();
+      closeModal();
+
+      // Open PayPal.Me in new tab
+      window.open("https://paypal.me/TraumHandyVerlosung/1", "_blank");
+      showToast("Pixel reserviert – PayPal in neuem Tab geöffnet.");
+    });
+  }
+
+  // Modal close handlers
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", closeModal);
+  }
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener("click", (e) => {
+      if (e.target === modalBackdrop) {
+        closeModal();
+      }
+    });
+  }
+
+  // Scroll buttons
+  function scrollToUniverse() {
+    if (universeShell) {
+      universeShell.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
+
+  if (scrollToGridBtn) {
+    scrollToGridBtn.addEventListener("click", scrollToUniverse);
+  }
+  if (scrollToUniverseBtn) {
+    scrollToUniverseBtn.addEventListener("click", scrollToUniverse);
+  }
+
+  // Teilnahmebedingungen Button
+  if (openRulesBtn) {
+    openRulesBtn.addEventListener("click", () => {
+      alert(
+        "Kurzfassung Teilnahmebedingungen (Demo):\n\n" +
+        "1. Du kaufst einen digitalen Pixel im TraumHandy-Universum (1 €).\n" +
+        "2. Mit deinem Kauf erhältst du zusätzlich kostenlos eine Teilnahme an der TraumHandyVerlosung.\n" +
+        "3. Der Hauptgewinn ist ein iPhone 17 Pro, 256 GB, Farbe: Cosmic Orange. Der Gewinner wird zufällig aus allen Pixel-Käufer:innen ermittelt.\n" +
+        "4. Die Aktion endet am 29.11.2025 um 22:00 Uhr. Kein Anspruch auf Barauszahlung.\n" +
+        "5. Dies ist eine privat organisierte Aktion, nicht im Namen oder Auftrag von Apple oder PayPal.\n" +
+        "6. Bitte lasse die vollständigen Teilnahmebedingungen rechtlich prüfen, bevor du die Seite groß bewirbst."
+      );
+    });
+  }
+
+  // Countdown bis 29.11.2025 22:00 Uhr (Europa/Berlin)
+  const endDate = new Date("2025-11-29T22:00:00+01:00").getTime();
+
+  function updateCountdown() {
+    if (!countdownEl) return;
+    const now = Date.now();
+    const distance = endDate - now;
+
+    if (distance <= 0) {
+      countdownEl.innerHTML = "Die Aktion ist beendet.";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML =
+      "Ablauf der Aktion in: <strong>" +
+      days + "T " + hours + "h " + minutes + "m " + seconds + "s</strong>";
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // FAQ Accordion
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      const open = item.classList.contains("open");
+      document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
+      if (!open) {
+        item.classList.add("open");
+      }
+    });
+  });
+
+  // Init
+  loadPixels();
+  buildGrid();
+</script>
+
+</body>
+</html>

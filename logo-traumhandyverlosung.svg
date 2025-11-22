@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect x="16" y="8" width="32" height="48" rx="8" fill="none" stroke="#ffffff" stroke-width="2" />
+  <defs>
+    <linearGradient id="thvGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff7a45" />
+      <stop offset="100%" stop-color="#ffffff" />
+    </linearGradient>
+  </defs>
+  <rect x="20" y="14" width="24" height="32" rx="5" fill="url(#thvGrad)" />
+  <circle cx="32" cy="46" r="2" fill="#050509" />
+  <polygon
+    points="46,16 48,20 52,21 49,24 50,28 46,26 42,28 43,24 40,21 44,20"
+    fill="#ff7a45"
+    stroke="#ffffff"
+    stroke-width="0.7"
+  />
+</svg>
